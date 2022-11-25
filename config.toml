@@ -1,11 +1,11 @@
-baseURL = "http://math.iisc.ac.in/~gadgil/algebraic-topology-2022/"
+baseURL = "http://math.iisc.ac.in/~gadgil/proofs-and-programs-2023/"
 languageCode = "en-us"
-title = "MA 332: Algebraic Topology"
+title = "MA 208: Proof and Programs"
 theme = "course"
 buildFuture = "true"
 [params]
-    code = "MA 332"
-    course = "Algebraic Topology"
-    term = "January 2022"
+    code = "MA 208"
+    course = "Proof and Programs"
+    term = "January 2023"
 [markup.goldmark.renderer]
 unsafe= true
