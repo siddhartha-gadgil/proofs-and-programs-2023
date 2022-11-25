@@ -1,0 +1,17 @@
+{{ define "main"}}
+<h3>Notes</h3>
+
+{{ .Content }}
+
+<ul>
+  {{  range .Paginator.Pages }}
+   <li> <h4><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h4> 
+    <h6>{{ dateFormat "Monday, Jan 2, 2006" .Date }}.</h6> 
+   <p>{{ .Summary }}</p>
+  </li>
+   {{ if .Truncated }}
+            <a href="{{ .RelPermalink }}">Read more&hellip;</a>
+            {{ end }}
+  {{ end }}
+</ul>
+{{ end }}

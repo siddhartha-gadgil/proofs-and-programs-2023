@@ -1,0 +1,27 @@
+<ol id="dropdown1" class="dropdown-content">
+  {{ range where $.Site.RegularPages.ByDate "Section" "assignments" }}
+  <li> <a href={{ .Permalink }}>{{ .Title }}</a> ({{ dateFormat "2/1/2006" .Date }}). </li>
+  {{ end }}
+</ol>
+<nav>
+  <div class="nav-wrapper">
+    <span class="brand-logo">
+      &nbsp; {{ .Site.Params.code }}
+      <a href="http://math.iisc.ac.in/~gadgil">(Siddhartha Gadgil)</a></span>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="{{ .Site.BaseURL }}index.html">Home</a></li>
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Assignments<i
+            class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a href="{{ .Site.BaseURL }}assignments/">All Assignments</a></li>
+      <li><a href="{{ .Site.BaseURL }}notes/">Notes</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="{{ .Site.BaseURL }}index.html">Home</a></li>
+  <li><a href="{{ .Site.BaseURL }}all-lectures/">Lectures</a></li>
+  <li><a href="{{ .Site.BaseURL }}assignments/">Assignments</a></li>
+  <li><a href="{{ .Site.BaseURL }}notes/">Notes</a></li>
+</ul>

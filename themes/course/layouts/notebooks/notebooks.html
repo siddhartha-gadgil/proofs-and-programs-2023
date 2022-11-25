@@ -1,0 +1,15 @@
+{{ define "main"}}
+<h4>Notebooks</h4>
+
+{{ .Content }}
+
+
+{{ $files := readDir "notebooks" }}
+<ol>
+    {{ range $files  }}{{ if (strings.HasSuffix .Name ".ipynb") }}<li><strong><a href="{{ $.Site.BaseURL }}notebooks/{{ .Name }}.html" target="_blank">{{ .Name }}</a></strong>, created on {{ dateFormat "Monday, Jan 2, 2006" .ModTime }}.  
+    </li> {{ end }} {{ end }}
+</ol>
+
+{{ end }}
+
+

@@ -1,0 +1,9 @@
+<section>
+    <h4>Assignments</h4>
+    {{ partial "assignment-summary.html" . }}
+    <ol>
+      {{  range where $.Site.RegularPages.ByDate "Section" "assignments" }}
+      <li> <a href={{ .Permalink }}>{{ .Title }}</a> due by {{ dateFormat "Monday, Jan 2, 2006" .Date }}.
+      </li> {{ end }}
+    </ol>
+  </section>

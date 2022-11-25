@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+  flex: 1 0 auto;
+}
+
+code{
+  font-size: inherit;
+}
+
+li{
+  margin: 10px 0 !important;
+}

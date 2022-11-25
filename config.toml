@@ -1,0 +1,11 @@
+baseURL = "http://math.iisc.ac.in/~gadgil/algebraic-topology-2022/"
+languageCode = "en-us"
+title = "MA 332: Algebraic Topology"
+theme = "course"
+buildFuture = "true"
+[params]
+    code = "MA 332"
+    course = "Algebraic Topology"
+    term = "January 2022"
+[markup.goldmark.renderer]
+unsafe= true

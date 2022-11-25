@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+
+
+<h3 class="center-align">{{ .Site.Params.code }}: {{ .Site.Params.course }} </h3>
+<h4 class="center-align"> {{ .Site.Params.term }} </h4>
+
+
+{{ .Content }}
+
+{{ partial "assignment-section.html" . }}
+
+{{ if (fileExists "details.md") -}}
+{{ readFile "details.md" | markdownify }}
+{{- end }}
+
+{{ end }}

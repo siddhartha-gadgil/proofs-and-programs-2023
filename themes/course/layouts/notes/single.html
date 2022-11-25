@@ -1,0 +1,9 @@
+{{ define "main" }}
+
+<h3 class="center-align">{{ .Title }}</h3>
+
+<h5 class="center-align">  {{ dateFormat "Monday, Jan 2, 2006" .Date }} </h5>
+
+ {{ .Content }}
+
+{{ end }}
