@@ -6,3 +6,4 @@ videos/
 /lean_packages/*
 !/lean_packages/manifest.json
 /static/doc
+.hugo_build.lock
