@@ -12,6 +12,12 @@ code{
   font-size: inherit;
 }
 
+ul{
+  list-style-type: disc !important;
+}
+
+ul:not(.browser-default)>li{list-style-type:disc}
+
 li{
   margin: 10px 0 !important;
 }

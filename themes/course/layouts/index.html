@@ -5,8 +5,12 @@
 <h3 class="center-align">{{ .Site.Params.code }}: {{ .Site.Params.course }} </h3>
 <h4 class="center-align"> {{ .Site.Params.term }} </h4>
 
-
 {{ .Content }}
+
+{{ if (fileExists "description.md") -}}
+{{ readFile "description.md" | markdownify }}
+{{- end }}
+
 
 {{ partial "assignment-section.html" . }}
 
