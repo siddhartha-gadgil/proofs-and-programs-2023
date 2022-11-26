@@ -15,3 +15,8 @@ To study these things in a meaningful way, we will look at _foundations_ of _mat
 * Classical foundations:
   - _First-order logic:_ the usual foundations of mathematics.
   - _lambda-calculus:_ one of the equivalent formulations of the usual foundations of computation.
+
+##### Prerequisites
+
+No background in logic or programming is required. 
+Some mathematical maturity is required: in particular familiarity with proofs. Besides this the only requirements are open mindedness and willingness to spend a (modest amount of) time and effort to setup a working environment and dealing with technical issues.
