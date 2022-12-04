@@ -6,6 +6,10 @@
 * __Timing:__ to be announced
 * __Venue:__ to be announced
 
+##### Zulip chat
+
+As with Lean we will use a [Zulip server](https://automathind.zulipchat.com/login/) for discussions. You can  also post on the stream by sending an email to the address proofs-and-programs-2023.c691c1d30e6095cd0e45e3fb4929734d.show-sender@streams.zulipchat.com.
+
 #### References
 
 * Jeremy Avigad, Leonardo de Moura, Soonho Kong and Sebastian Ullrich,
