@@ -14,5 +14,5 @@ lean_exe pnP2023 {
   root := `Main
 }
 
-meta if get_config? env = some "dev" then -- dev is so not everyone has to build it
+meta if get_config? doc = some "on" then -- do not download and build doc-gen4 by default
 require «doc-gen4» from git "https://github.com/leanprover/doc-gen4" @ "main"

@@ -3,7 +3,6 @@ public/
 *.autosave.*
 videos/
 /build
-/lean_packages/*
-!/lean_packages/manifest.json
+/lake-packages
 /static/doc
 .hugo_build.lock
