@@ -26,18 +26,6 @@
     "name": "Cli",
     "inputRev?": "nightly"}},
   {"git":
-   {"url": "https://github.com/gebner/quote4",
-    "subDir?": null,
-    "rev": "7ac99aa3fac487bec1d5860e751b99c7418298cf",
-    "name": "Qq",
-    "inputRev?": "master"}},
-  {"git":
-   {"url": "https://github.com/JLimperg/aesop",
-    "subDir?": null,
-    "rev": "70c59fcfc63de90786d59222c32468dab87964c5",
-    "name": "aesop",
-    "inputRev?": "master"}},
-  {"git":
    {"url": "https://github.com/hargonix/LeanInk",
     "subDir?": null,
     "rev": "9f3101452135964ac9107ec8e9910bfd14022bbc",
@@ -48,10 +36,4 @@
     "subDir?": null,
     "rev": "6dd6ae3a3839c8350a91876b090eda85cf538d1d",
     "name": "Unicode",
-    "inputRev?": "main"}},
-  {"git":
-   {"url": "https://github.com/leanprover/std4",
-    "subDir?": null,
-    "rev": "42bb39d34ec7dcb07580458efa4a7936bd5192b7",
-    "name": "std",
     "inputRev?": "main"}}]}
