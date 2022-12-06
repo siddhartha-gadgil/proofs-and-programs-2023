@@ -1,7 +1,7 @@
 ---
 title: "Overview"
 date: 2022-12-04T08:51:53+05:30
-draft: true
+draft: false
 marp: true
 math: katex
 theme: gaia
@@ -97,18 +97,48 @@ Formalization of mathematics can:
 * Facilitate using mathematics correctly in other domains (of mathematics). 
 ---
 
-#### Correctness
+##### Correctness
 
 * We obviously want to ensure high levels of correctness in all domains, i.e., with fewer and less serious errors.
-* This has to be balanced against the extra effort required to ensure correctness.
+* This has to be balanced against the extra effort required.
 * In software, we use _testing_ to minimize errors.
 * In mathematics, we use _refereeing_ and other human checks.
 * Both these keep errors from spiralling out of control.
----
 * However, serious and unfixable errors are not uncommon.
+
 * In particular many papers in the _Annals of Mathematics_ have unfixable errors.
+---
 * In the case of software, hardware, etc there are situations where it is worth taking a lot of effort to avoid (serious) errors.
     - in safety-critical systems,
     - in systems where a mistake is expensive to fix, such as chips,
     - in _systems software_, where a bug is a _vulnerability_.
-* As mathematics builds on other mathematics, and correctness is a defining property, it is arguably worth applying at least the same standards as systems software.
+* As mathematics 
+  - builds on other mathematics, and
+  - correctness is a defining property, 
+
+it is arguably worth applying at least the same standards as systems software.
+
+---
+
+#### How?
+
+* We use Lean 4, which is a _programming language_ and an _interactive theorem prover_.
+* We will formalize mathematics, implement programs for mathematical computation, and prove their correctness.
+* We will implement and formalize in Lean 4:
+    - a SAT solver (and maybe more)
+    - first-order logic
+    - λ-calculus 
+* We will see glimpses of AI/ML, including using tools under development.
+
+---
+#### Why now?
+
+* Mature but still growing areas are:
+    - Experimental and Computational Mathematics,
+    - SAT/SMT solvers and their use in Mathematics.
+* There is explosive growth in Lean and its mathematical library.
+* There is even more explosive growth in AI/ML.
+* There is great potential in 
+    - interactive theorem proving
+    - interaction with AI/ML
+    - mathematical proofs of programs.
