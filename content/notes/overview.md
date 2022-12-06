@@ -7,7 +7,7 @@ draft: true
 Here we sketch the __what__, the __why__, the __how__, and the __why now__ of this course.
 
 <!--more-->
-#### What?
+## What?
 
 Broadly, our goals are the following
 
@@ -17,7 +17,7 @@ Broadly, our goals are the following
 * Proving correctness of programs; including writing the programs whose correctness we prove.
 * Writing programs to find and/or verify proofs
 
-##### What do these mean?
+### What do these mean?
 
 To make sense of the above, we need to understand:
 
@@ -35,11 +35,11 @@ In practice classical foundations are only useful _in the small_, i.e., for dedu
 
 On the other hand, the foundations building on _Dependent Type theory_ can resemble real-world mathematics as well as form the basis for a real-world programming language.
 
-##### What do theorem proving programs do?
+### What do theorem proving programs do?
 
 Theorem proving programs vary in the _generality_ in which they work, how _autonomous_ they are and the _complexity and scale_ they can handle.
 
-#### Why?
+## Why?
 
 A large part of this course is about _formalized mathematics_, i.e., mathematics that can be understood and verified by computers. Formalization can also be done in other domains: software, hardware design, networking protocols, encryption schemes, even tax codes. An article by [Patrick Massot](https://www.imo.universite-paris-saclay.fr/~patrick.massot/files/exposition/why_formalize.pdf) gives a beautiful account of the motivation for formalization of mathematics.
 
