@@ -64,15 +64,15 @@ Theorem proving programs vary in:
 
 They can be used for:
 
-* __Automation:__
+* __Automation__
 * __Formalization:__ _more_ effort than a human proof.
 * __Tooling:__ helping find (possibly human) proofs.
 
 ---
 
-* Software like mathematica, SAGE, GAP handle specific mathematical problems with specific algorithms.
+* Software like Mathematica, SAGE, GAP handle specific mathematical problems with specific algorithms.
 * General problems, but _in the small_, can be solved by
-    - SAT/SMT solvers. for finite or special classes of infinite problems.
+    - SAT/SMT solvers for finite or special classes of infinite problems.
     - FOL solvers such as _Resolution Theorem Provers_ for general problems.
 * _Interactive theorem provers_ (ITPs) are used for general problems and _in the large_, but are typically not fully autonomous.
 * __AI/ML__ systems can be used to help with automation and can handle _natural language_, but are still not mature.
@@ -99,7 +99,7 @@ Formalization of mathematics can:
 
 ##### Correctness
 
-* We obviously want to ensure high levels of correctness in all domains, i.e., with fewer and less serious errors.
+* We obviously want to ensure high levels of correctness in all domains, i.e., with __fewer__ and __less serious__ errors.
 * This has to be balanced against the extra effort required.
 * In software, we use _testing_ to minimize errors.
 * In mathematics, we use _refereeing_ and other human checks.
