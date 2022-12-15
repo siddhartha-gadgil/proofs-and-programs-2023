@@ -64,6 +64,6 @@
   {"git":
    {"url": "https://github.com/siddhartha-gadgil/LeanAide.git",
     "subDir?": null,
-    "rev": "0b9c2a20353de78046a65bbbf71382e16e7c0fec",
+    "rev": "635b60644f87b46c3803dc0a8757a9e250911ced",
     "name": "leanaide",
     "inputRev?": "mathlib4"}}]}
