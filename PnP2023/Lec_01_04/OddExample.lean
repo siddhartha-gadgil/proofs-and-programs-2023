@@ -1,4 +1,4 @@
-import LeanCodePrompts.Translate
+import Mathlib
 import LeanCodePrompts.CodeActions
 
 /-!
