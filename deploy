@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+./mk_imports.sh
+lake build
 # lake -Kdoc=on build PnP2023:docs
 # cp -R build/doc static/
 hugo
