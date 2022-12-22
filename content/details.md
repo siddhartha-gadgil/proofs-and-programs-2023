@@ -3,8 +3,9 @@
 * __Instructor:__ [Siddhartha Gadgil](http://math.iisc.ac.in/~gadgil)
 * __E-mail:__ _siddhartha.gadgil@gmail.com_
 * __Office:__ N-15, Department of Mathematics, IISc.
-* __Timing:__ to be announced
-* __Venue:__ to be announced
+* __Timing:__ Monday, Wednesday, Friday, 9:00-10:00 AM IST
+* __Venue:__ LH-3 (ground floor), Department of Mathematics, IISc.
+* __First meeting:__ Wednesday, January 4, 2023
 
 ##### Zulip chat
 
