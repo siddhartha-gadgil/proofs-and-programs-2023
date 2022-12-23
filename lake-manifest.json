@@ -14,7 +14,7 @@
     "name": "lake",
     "inputRev?": "master"}},
   {"git":
-   {"url": "https://github.com/siddhartha-gadgil/doc-gen4",
+   {"url": "https://github.com/leanprover/doc-gen4",
     "subDir?": null,
     "rev": "f221bbdcffe6a17bb310f0e9ee10767812b03e13",
     "name": "doc-gen4",
@@ -28,7 +28,7 @@
   {"git":
    {"url": "https://github.com/siddhartha-gadgil/mathlib4.git",
     "subDir?": null,
-    "rev": "63aa45c9e2a29e848683ff800155f930c8ae12f2",
+    "rev": "ca97e7ba874708c46ddfc25165f9bc1a75c5b8cc",
     "name": "mathlib",
     "inputRev?": "master"}},
   {"git":
@@ -40,7 +40,7 @@
   {"git":
    {"url": "https://github.com/JLimperg/aesop",
     "subDir?": null,
-    "rev": "ebea1013bc12e73193c5b6148271c1360addd298",
+    "rev": "87a654a5a10f5edf3cfaee9052c08a4342b24179",
     "name": "aesop",
     "inputRev?": "master"}},
   {"git":
@@ -58,12 +58,12 @@
   {"git":
    {"url": "https://github.com/leanprover/std4",
     "subDir?": null,
-    "rev": "560e79852d7640ddf6d884d9cd87ea16ef1d40b7",
+    "rev": "788ffeee98ac3ef98dd5d54ede953d8194af0593",
     "name": "std",
     "inputRev?": "main"}},
   {"git":
    {"url": "https://github.com/siddhartha-gadgil/LeanAide.git",
     "subDir?": null,
-    "rev": "7450f56dff153f937e3e215c1279131caa7a770e",
+    "rev": "f15b2574c0c8cc9eedfdf5c5886197836a993fa4",
     "name": "leanaide",
     "inputRev?": "mathlib4"}}]}
