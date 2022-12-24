@@ -19,6 +19,10 @@ To study these things in a meaningful way, we will look at _foundations_ of _mat
   - _First-order logic:_ the usual foundations of mathematics.
   - _lambda-calculus:_ one of the equivalent formulations of the usual foundations of computation.
 
+## Navigation
+
+To browse the code, expand the `PnP2023` tab on the left.
+
 -/
 
 def hello := "to the course Proofs and Programs"
