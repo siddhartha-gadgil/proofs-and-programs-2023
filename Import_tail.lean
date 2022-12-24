@@ -1,5 +1,3 @@
-import PnP2023.Lec_01_04.Intro
-import PnP2023.Lec_01_04.OddExample
 /-!
 # Proofs and Programs 2023
 

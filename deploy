@@ -2,7 +2,7 @@
 set -e
 ./mk_imports.sh
 lake build
-# lake -Kdoc=on build PnP2023:docs
-# cp -R build/doc static/
+lake -Kdoc=on build PnP2023:docs
+cp -R build/doc static/
 hugo
 rsync -avz -e 'ssh -oHostKeyAlgorithms=+ssh-dss' --exclude build --exclude lake-packages --exclude "*~" public/ math.iisc.ac.in:/home/gadgil/public_html/proofs-and-programs-2023/
