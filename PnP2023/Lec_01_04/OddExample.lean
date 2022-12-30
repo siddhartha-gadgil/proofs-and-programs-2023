@@ -1,5 +1,5 @@
 import Mathlib
-import LeanCodePrompts.CodeActions
+import LeanAide
 
 /-!
 ## A bit of AI
