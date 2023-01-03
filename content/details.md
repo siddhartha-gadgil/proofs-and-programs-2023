@@ -9,13 +9,13 @@
 
 #### Grading
 
-Course grades will be based **entirely** on code in Lean, which has three components:
+Course grades will be based **entirely** on code in Lean and your knowledge of related concepts, which has three components:
 
 * __Lab assigments:__ 20%; these will be regularly assigned.
 * __Midterm Project:__ 30%; this will be due at the start of the midterm week.
 * __Final Project:__ 50%; this will be due on the date of the final examination.
 
-The projects will be Lean code which can be either implementations of algorithms with proofs in Lean or formalizations of mathematical results in Lean. All code must be properly documented. There is considerable flexibility in the choice of projects, including to work collaboratively. The evaluation will be based on both the code itself and presentations of the code.
+The projects will be Lean code which can be either implementations of algorithms with proofs in Lean or formalizations of mathematical results in Lean. All code must be properly documented. There is considerable flexibility in the choice of projects, including to work collaboratively. The evaluation will be based on both the code itself and presentations of the code. In addition there will be viva sessions where the students show their knowledge of the code and related concepts.
 
 ##### Setting up Lean 4 and Repository
 
