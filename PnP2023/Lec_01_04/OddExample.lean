@@ -13,4 +13,4 @@ We use `leanaide` for a bit of AI. For more direct use (such as debugging), can 
 
 
 /- There are infinitely many odd numbers -/
-example : ∀ (n : ℕ), Exists fun m ↦ m > n ∧ m % 2 = 1 := by sorry
+example : ∀ (n : ℕ), ∃ m, m > n ∧ m % 2 = 1 := by sorry
