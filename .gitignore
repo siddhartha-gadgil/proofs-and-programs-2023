@@ -6,3 +6,4 @@ videos/
 /lake-packages
 /static/doc
 .hugo_build.lock
+.cache/
