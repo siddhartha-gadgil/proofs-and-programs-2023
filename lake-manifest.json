@@ -14,9 +14,9 @@
     "name": "lake",
     "inputRev?": "master"}},
   {"git":
-   {"url": "https://github.com/leanprover/doc-gen4",
+   {"url": "https://github.com/leanprover/doc-gen4.git",
     "subDir?": null,
-    "rev": "bdf803b1002786b87da7b8db8d2746c0002a715f",
+    "rev": "09dbebed9ca85368152bb5146ef6f1271b1be425",
     "name": "doc-gen4",
     "inputRev?": "main"}},
   {"git":
