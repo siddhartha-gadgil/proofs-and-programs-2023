@@ -15,7 +15,7 @@ lean_exe pnP2023 {
 }
 
 require mathlib from git
-  "https://github.com/siddhartha-gadgil/mathlib4.git"@ "master"
+  "https://github.com/leanprover-community/mathlib4.git"@"master"
 
 require leanaide from git "https://github.com/siddhartha-gadgil/LeanAide.git" @ "mathlib4"
 
