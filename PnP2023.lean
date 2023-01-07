@@ -1,8 +1,9 @@
 import PnP2023.Lec_01_04.Intro
 import PnP2023.Lec_01_04.OddExample
-import PnP2023.Lec_01_06.NatLe
-import PnP2023.Lec_01_06.NatRec
-import PnP2023.Lec_01_06.NatSub
+import PnP2023.Lec_01_06.NatEq
+import PnP2023.Lec_01_09.NatLe
+import PnP2023.Lec_01_09.NatRec
+import PnP2023.Lec_01_09.NatSub
 /-!
 # Proofs and Programs 2023
 
