@@ -33,7 +33,7 @@ Our first example is simpler: just a proof of equality. Note that a proof of a t
 
 In a definition, we give a name, a type and a value (though sometimes the type is inferred so can be omitted). In a theorem, we give a name, a statement and a proof. The statement is essentially a type, and the proof is a value of that type.
 
-Technically a statement is a proposition which is slightly different from a type as we see below, but in these examples it is best to think of it as a type.
+Techincally a statement is a proposition which is a special sort of type as we see below, but in these examples it is best to think of it as just a type.
 -/
 
 /-- The theorem that `1 + 1 = 2` -/
@@ -149,9 +149,11 @@ As we have remarked, this is formally very similar to the proof of a theorem. To
 #check Type -- Type : Type 1
 ```
 
-The main difference between the two cases is that the type of a theorem is a _proposition_ (i.e., a type in `Prop`). The type of `Prop` is `Type`, which is a type in the next universe up and is the type of `ℕ`. The universes form so called _Sorts_, with all but the first being _Types_.
+The main difference between the two cases is that the type of a theorem is a _proposition_, which is a special _type_ (i.e., a type in `Prop`). The type of `Prop` is `Type`, which is a type in the next universe up and is the type of `ℕ`. The universes form so called _Sorts_, with all but the first being _Types_.
 
-In other closely related foundational systems (such as _Homotopy Type Theory_), this distinction is not present and all uninverses are _Types_. In Lean _propositions_, i.e., elements of `Prop` (such as `1 = 1`) have a special property that two terms (i.e., proofs) of a proposition are equal by definition.
+In other closely related foundational systems (such as _Homotopy Type Theory_), this distinction is not present and all uninverses are _Types_. In Lean _propositions_, i.e., elements of `Prop` (such as `1 = 1`) have a special property that two terms (i.e., proofs) of a proposition are equal by definition. 
+
+Propositions are taken to be at "Types at level -1", i.e.,  "Sorts at level 0". This makes it convenient to exclude propositions in some cases where it is necessary to do so (as we will see later).
 -/
 
 
