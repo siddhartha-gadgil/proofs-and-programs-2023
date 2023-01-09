@@ -33,7 +33,7 @@ Our first example is simpler: just a proof of equality. Note that a proof of a t
 
 In a definition, we give a name, a type and a value (though sometimes the type is inferred so can be omitted). In a theorem, we give a name, a statement and a proof. The statement is essentially a type, and the proof is a value of that type.
 
-Techincally a statement is a proposition which is a special sort of type as we see below, but in these examples it is best to think of it as just a type.
+Technically a statement is a proposition which is a special sort of type as we see below, but in these examples it is best to think of it as just a type.
 -/
 
 /-- The theorem that `1 + 1 = 2` -/
