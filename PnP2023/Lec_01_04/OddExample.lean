@@ -13,4 +13,9 @@ We use `leanaide` for a bit of AI. For more direct use (such as debugging), can 
 
 
 /- There are infinitely many odd numbers -/
-example : ∀ (n : ℕ), ∃ m, m > n ∧ m % 2 = 1 := by sorry
+example : ∀ (n : ℕ), ∃ m, m > n ∧ m % 2 = 1 := by
+  intro n
+  use 2 * n + 1
+  apply And.intro
+  · linarith 
+  · simp [Nat.add_mod]
