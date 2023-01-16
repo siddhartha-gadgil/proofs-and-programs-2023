@@ -14,6 +14,8 @@ lean_exe pnP2023 {
   root := `Main
 }
 
+lean_exe lab1
+
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4.git"@"master"
 

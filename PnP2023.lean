@@ -1,4 +1,3 @@
-import PnP2023.Lec01_18.NatSub
 import PnP2023.Lec_01_04.Intro
 import PnP2023.Lec_01_04.OddExample
 import PnP2023.Lec_01_06.NatEq
