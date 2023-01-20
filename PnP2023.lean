@@ -1,3 +1,4 @@
+import PnP2023.Extras.LeanTimes
 import PnP2023.Labs.Lab01.Register
 import PnP2023.Lec_01_04.Intro
 import PnP2023.Lec_01_04.OddExample
@@ -5,6 +6,8 @@ import PnP2023.Lec_01_06.NatEq
 import PnP2023.Lec_01_11.NatLe
 import PnP2023.Lec_01_13.NatRec
 import PnP2023.Lec_01_18.NatSub
+import PnP2023.Lec_01_20.NatMin
+import PnP2023.Lec_01_20.NatMinus
 /-!
 # Proofs and Programs 2023
 
