@@ -108,6 +108,9 @@ partial def hcf (a b : ℕ) : ℕ :=
 
 #eval hcf 18 12 -- 6
 
+#check Nat.pos_of_ne_zero
+#check Nat.sub_lt_of_pos_le
+
 /-!
 Lean has to allow partial definitions due to deep results of Church-Gödel-Turing-..., which say for example that we cannot prove that a Lean interpreter in Lean terminates.
 -/
