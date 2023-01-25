@@ -55,3 +55,23 @@ def egNat : ℕ := by
   left
 
 #eval egNat -- 1
+
+/--
+`smallest` is less than or equal to each element in the list
+-/
+theorem smallest_le (l : List ℕ) (hyp : l ≠ []) : 
+  ∀ m : ℕ, m ∈ l → smallest l hyp ≤ m  := match l with
+  | head :: tail => by
+    simp [smallest, hyp]
+    apply And.intro
+    · split  <;> simp 
+    · intro a hyp'
+      have c'' : tail ≠ [] := by
+        intro contra
+        rw [contra] at hyp'
+        contradiction
+      simp [c'']
+      right
+      exact smallest_le tail c'' a hyp'
+
+#check List.mem_cons

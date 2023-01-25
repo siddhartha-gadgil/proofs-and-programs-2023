@@ -1,5 +1,3 @@
-import PnP2023.Extras.LeanTimes
-import PnP2023.Labs.Lab01.Register
 import PnP2023.Lec_01_04.Intro
 import PnP2023.Lec_01_04.OddExample
 import PnP2023.Lec_01_06.NatEq

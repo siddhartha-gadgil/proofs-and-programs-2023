@@ -100,11 +100,33 @@ def hcf (a b : ℕ) : ℕ :=
 ```
 -/
 
-partial def hcf (a b : ℕ) : ℕ :=
-  if b < a then hcf b a
+def hcf (a b : ℕ) : ℕ :=
+  if c:b < a then hcf b a
   else
-    if a = 0 then b
-    else hcf a (b - a)
+    if c'':a = 0 then b
+    else
+      have _ : b - a < b := by 
+        apply Nat.sub_lt_of_pos_le
+        · apply Nat.pos_of_ne_zero
+          assumption
+        · apply Nat.le_of_not_lt
+          assumption
+      hcf a (b - a)
+termination_by _ a b => (a, b)
+
+/-!
+```lean
+partial def wrong(n: ℕ): Empty :=
+  wrong (n + 1)
+```
+
+gives the error message
+```lean
+failed to compile partial definition 'wrong', failed to show that type is inhabited and non empty
+```
+-/
+-- partial def wrong(n: ℕ): Empty :=
+--   wrong (n + 1)
 
 #eval hcf 18 12 -- 6
 
