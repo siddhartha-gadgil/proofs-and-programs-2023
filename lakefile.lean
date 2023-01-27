@@ -16,6 +16,8 @@ lean_exe pnP2023 {
 
 lean_exe lab1
 
+lean_exe lab2
+
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4.git"@"master"
 

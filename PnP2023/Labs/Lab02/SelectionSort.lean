@@ -34,8 +34,7 @@ theorem remove_mem_length {a : ℕ} {l : List ℕ} (h : a ∈ l) : (List.remove 
 /-- The selection sort function -/
 def selectionSort (l : List ℕ) : List ℕ := 
     if c: l=[] then [] else
-    let m := smallest l c
-    m :: selectionSort (List.remove m l)
+    (smallest l c) :: selectionSort (List.remove (smallest l c) l)
 termination_by _ _ => l.length
 decreasing_by sorry
 
@@ -51,7 +50,7 @@ def List.sorted: List ℕ →  Prop
 | h :: t => (t.le_all h) ∧ (t.sorted)
 
 /-!
-- Problem 3 show that the selection sort function preserves sortedness (remove sorry). 
+- Problem 3 show that the selection sort function gives a sorted list(remove sorry). 
 -/
 
 /-- Selection sort is sorted -/
@@ -64,3 +63,4 @@ theorem selectionSort_mem (l : List ℕ) (a : ℕ) : a ∈ l ↔ a ∈ selection
   apply Iff.intro
   · sorry
   · sorry
+
