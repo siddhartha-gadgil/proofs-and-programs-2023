@@ -1,4 +1,4 @@
-import PnP2023.Labs.Lab02.SelectionSort
+import PnP2023.Labs.Lab03.SelectionSort
 
 def sortedList(l : List ℕ) : 
     {l' : List ℕ // l'.sorted ∧ ∀ a: ℕ, a ∈ l ↔ a ∈  l'} := ⟨selectionSort l, selectionSort_sorted l, by apply selectionSort_mem⟩
