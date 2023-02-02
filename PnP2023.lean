@@ -7,6 +7,7 @@ import PnP2023.Lec_01_18.NatSub
 import PnP2023.Lec_01_20.NatMin
 import PnP2023.Lec_01_20.NatMinus
 import PnP2023.Lec_01_25.Answer
+import PnP2023.Lec_02_01.Foundations
 /-!
 # Proofs and Programs 2023
 

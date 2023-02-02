@@ -21,7 +21,7 @@ We have seen all the ingredients of the foundations of mathematics as implemente
 The starting assumption is that we are in agreement with the meaning of syntax, including pattern matching and substitution. For example, we can understand the following definition is valid in Lean, assuming we know what `ℕ` means:
 
 ```lean
-def cube : ℕ → ℕ := fun n → n * n * n
+def cube : ℕ → ℕ := fun n ↦ n * n * n
 ```
 
 and that we can deduce from the above that `cube 3 = 3 * 3 * 3`.
@@ -29,6 +29,8 @@ and that we can deduce from the above that `cube 3 = 3 * 3 * 3`.
 ---
 
 We have __rules__ for foundations based on syntax. We also assume that the rules can be checked _mechanically_, i.e., by a computer program, and we are convinced that some such program is correct. For a flexible syntax, this is a non-trivial task. So we may want to restrict to a simpler syntax (as we will when we consider _classical foundations_).
+
+We have to also check that we correctly represent the corresponding "real world" concept.
 
 ---
 
