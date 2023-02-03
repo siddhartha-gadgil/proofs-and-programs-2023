@@ -173,6 +173,8 @@ inductive Answer where
 | explained : String → Answer → Answer
 deriving Inhabited, DecidableEq, Repr
 
+#check Answer.explained
+
 /-- An example of an answer -/
 def egAnswer : Answer := Answer.explained "I agree" Answer.yes
 
