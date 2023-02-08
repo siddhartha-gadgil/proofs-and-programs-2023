@@ -1,5 +1,7 @@
 import Mathlib
 import PnP2023.Lec_02_01.Foundations
+import PnP2023.Lec_01_13.NatRec
+
 
 /-!
 # Inductive Types
@@ -122,3 +124,84 @@ inductive Vec (α : Type u) :
 example : Vec ℕ 0 := Vec.nil
 
 example : Vec ℕ 1 := Vec.cons 3 (Vec.nil)
+
+#check List
+
+/-!
+## `List` is a parametrized inductive type
+
+```lean
+inductive List (α : Type u) where
+  /-- `[]` is the empty list. -/
+  | nil : List α
+  /-- If `a : α` and `l : List α`, then `cons a l`, or `a :: l`, is the
+  list whose first element is `a` and with `l` as the rest of the list. -/
+  | cons (head : α) (tail : List α) : List α
+```
+-/
+
+#check Fin
+
+/-!
+Sometimes types include conditions
+
+```lean
+structure Fin (n : Nat) where
+  /-- If `i : Fin n`, then `i.val : ℕ` is the described number. It can also be
+  written as `i.1` or just `i` when the target type is known. -/
+  val  : Nat
+  /-- If `i : Fin n`, then `i.2` is a proof that `i.1 < n`. -/
+  isLt : LT.lt val n
+```
+-/
+
+#check Vector
+
+/-!
+Conditions can be given by a *subtype* of the type.
+
+```lean
+def Vector (α : Type u) (n : ℕ) :=
+  { l : List α // l.length = n }
+```
+-/
+ 
+#check Subtype.property
+#check Subtype.val
+#check Subtype.mk
+
+/-!
+When an (indexed) inductive type is introduced,
+
+* the type (or family of types) is defined.
+* the constructors are defined.
+* a *recursor* is defined.
+* a rule for simplification of applications of the recursor is introduced.
+
+The recursor can be conveniently used by pattern matching.
+-/
+
+def Bool.disagree (b: Bool) : Bool :=
+  match b with
+  | Bool.false => Bool.true
+  | Bool.true => Bool.false
+
+#check Bool.rec -- {motive : Bool → Sort u} → motive false → motive true → (t : Bool) → motive t
+
+def egFamily (b: Bool) : Type :=
+  match b with
+  | Bool.false => Unit
+  | Bool.true => ℕ
+
+def egDepFunction (b: Bool) : egFamily b :=
+  match b with
+  | Bool.false => ()
+  | Bool.true => by
+    simp [egFamily]
+    exact 3
+
+set_option pp.motives.all true in
+#reduce egDepFunction
+
+set_option pp.motives.all true in
+#reduce Bool.disagree
