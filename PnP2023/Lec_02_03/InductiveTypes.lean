@@ -106,6 +106,17 @@ inductive InfiniteTree (α : Type u) where
 | leaf (label: α) : InfiniteTree α
 | node : (ℕ → InfiniteTree α) → InfiniteTree α
 
+inductive FiniteTree (α : Type u) where
+| leaf (label: α) : FiniteTree α
+| node : (List <| FiniteTree α)  → FiniteTree α
+
+-- Does terminate, but Lean does not have enough support yet
+partial def FiniteTree.flatten {α : Type u} : FiniteTree α → List α
+| FiniteTree.leaf label => [label]
+| FiniteTree.node children => 
+  children.foldl (fun acc child => acc ++ FiniteTree.flatten child) []
+
+
 /-!
 # Indexed inductive type
 
@@ -126,6 +137,10 @@ example : Vec ℕ 0 := Vec.nil
 example : Vec ℕ 1 := Vec.cons 3 (Vec.nil)
 
 #check List
+
+def Vec.to_list {α : Type u} {n : ℕ} : Vec α n → List α
+| Vec.nil => []
+| Vec.cons head tail => head :: tail.to_list
 
 /-!
 ## `List` is a parametrized inductive type
