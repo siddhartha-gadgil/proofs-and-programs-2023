@@ -114,7 +114,7 @@ inductive FiniteTree (α : Type u) where
 partial def FiniteTree.flatten {α : Type u} : FiniteTree α → List α
 | FiniteTree.leaf label => [label]
 | FiniteTree.node children => 
-  children.foldl (fun acc child => acc ++ FiniteTree.flatten child) []
+  children.foldl (fun acc child => acc ++ FiniteTree.flatten child) ([])
 
 
 /-!
