@@ -9,6 +9,7 @@ import PnP2023.Lec_01_20.NatMinus
 import PnP2023.Lec_01_25.Answer
 import PnP2023.Lec_02_01.Foundations
 import PnP2023.Lec_02_03.InductiveTypes
+import PnP2023.Lec_02_15.PropsAsTypes
 /-!
 # Proofs and Programs 2023
 
