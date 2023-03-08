@@ -38,14 +38,7 @@ def dvdQuotient (a b: Int)(h : b ∣ a) : {q : Int // a = b * q} :=
         rw [← Int.emod_add_ediv a b, Int.emod_eq_zero_of_dvd h, zero_add]
         ⟩
 
-def solveEquation (a b c : ℤ) (h: ↑(Int.gcd a b) ∣ c):
-    { xy : Int × Int // a * xy.1 + b * xy.2 = c} := by
-    let ⟨d, h'⟩ := dvdQuotient (c: Int) (Int.gcd a b)  h 
-    rw [Int.gcd_eq_gcd_ab a b] at h'
-    rw [add_mul, mul_assoc, mul_assoc] at h'
-    exact ⟨(Int.gcdA a b * d, Int.gcdB a b * d), Eq.symm h'⟩
-
-theorem eqn_solvable_divides (a b c : ℤ) :
+lemma eqn_solvable_divides (a b c : ℤ) :
     (∃ x : ℤ, ∃ y : ℤ,  a * x + b * y = c) →  ↑(Int.gcd a b) ∣ c := by
     intro ⟨x, y, h⟩
     rw [← h]
@@ -59,10 +52,14 @@ theorem eqn_solvable_divides (a b c : ℤ) :
 
 def DiaphontineSolution.solve (a b c : ℤ) : DiaphontineSolution a b c := 
     if h : ↑(Int.gcd a b) ∣ c  
-    then by
-        let ⟨(x, y), h'⟩ := solveEquation a b c h
-        simp at h'
-        exact DiaphontineSolution.solution x y h'         
+    then 
+    by
+        let ⟨d, h'⟩ := dvdQuotient (c: Int) (Int.gcd a b)  h 
+        rw [Int.gcd_eq_gcd_ab a b] at h'
+        rw [add_mul, mul_assoc, mul_assoc] at h'
+        let x := (Int.gcdA a b * d)
+        let y := (Int.gcdB a b * d)
+        exact DiaphontineSolution.solution x y h'.symm         
     else
         by  
         apply DiaphontineSolution.unsolvable
