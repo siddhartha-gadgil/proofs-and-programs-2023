@@ -5,6 +5,9 @@ import Mathlib
 We solve linear diaphontine equations of the form `a * x + b * y = c` where `a`, `b`, `c` are integers if they have a solution with proof. Otherwise, we return a proof that there is no solution.
 -/
 
+/--
+Solution of the linear diaphontine equation `a * x + b * y = c` where `a`, `b`, `c` are integers or a proof that there is no solution.
+-/
 inductive DiaphontineSolution (a b c : ℤ) where
     | solution : (x y : ℤ) →  a * x + b * y = c → DiaphontineSolution a b c
     | unsolvable : (∀ x y : ℤ, ¬ (a * x + b * y = c)) → DiaphontineSolution a b c
@@ -13,19 +16,25 @@ inductive DiaphontineSolution (a b c : ℤ) where
 This has a solution if and only if the gcd of `a` and `b` divides `c`.
 * If the gcd of `a` and `b` divides `c`, by Bezout's Lemma there are integers `x` and `y` such that `a * x + b * y = gcd a b`. Further, as `gcd a b` divides `c`, we have an integer `d` such that `(gcd a b) * d = c`. Then `x * d` and `y * d` are integers such that `a * (x * d) + b * (y * d) = c`.
 * The converse follows as `gcd a b` divides `a` and `b`, hence `c = a * x + b * y`.
--/
 
-#check Int.gcd_dvd_left
+The main results we need are in the library. Here are most of them:
 
-
-#check Nat.mul_div_cancel
-
-#check Int.dvd_iff_emod_eq_zero
-
+```lean
+#check Int.gcd_dvd_left -- ∀ (i j : ℤ), ↑(Int.gcd i j) ∣ i
 #check Int.emod_add_ediv -- ∀ (a b : ℤ), a % b + b * (a / b) = a
 #check Int.emod_eq_zero_of_dvd -- ∀ {a b : ℤ}, a ∣ b → b % a = 0
+#check Int.dvd_mul_right -- ∀ (a b : ℤ), a ∣ a * b
 #check Int.gcd_eq_gcd_ab -- ∀ (x y : ℤ), ↑(Int.gcd x y) = x * Int.gcdA x y + y * Int.gcdB x y
+#check dvd_add /-∀ {α : Type u_1} [inst : Add α] [inst_1 : Semigroup α] [inst_2 : LeftDistribClass α] {a b c : α},
+  a ∣ b → a ∣ c → a ∣ b + c-/
+```
+-/
 
+#check Int.gcd_dvd_left -- ∀ (i j : ℤ), ↑(Int.gcd i j) ∣ i
+#check Int.emod_add_ediv -- ∀ (a b : ℤ), a % b + b * (a / b) = a
+#check Int.emod_eq_zero_of_dvd -- ∀ {a b : ℤ}, a ∣ b → b % a = 0
+#check Int.dvd_mul_right -- ∀ (a b : ℤ), a ∣ a * b
+#check Int.gcd_eq_gcd_ab -- ∀ (x y : ℤ), ↑(Int.gcd x y) = x * Int.gcdA x y + y * Int.gcdB x y
 #check dvd_add /-∀ {α : Type u_1} [inst : Add α] [inst_1 : Semigroup α] [inst_2 : LeftDistribClass α] {a b c : α},
   a ∣ b → a ∣ c → a ∣ b + c-/
 
@@ -38,6 +47,8 @@ def dvdQuotient (a b: Int)(h : b ∣ a) : {q : Int // a = b * q} :=
         rw [← Int.emod_add_ediv a b, Int.emod_eq_zero_of_dvd h, zero_add]
         ⟩
 
+/-- If `a * x + b * y = c` has a solution, then `gcd a b` divides `c`.
+-/
 lemma eqn_solvable_divides (a b c : ℤ) :
     (∃ x : ℤ, ∃ y : ℤ,  a * x + b * y = c) →  ↑(Int.gcd a b) ∣ c := by
     intro ⟨x, y, h⟩
@@ -50,6 +61,7 @@ lemma eqn_solvable_divides (a b c : ℤ) :
       · apply Int.gcd_dvd_right  
       · apply Int.dvd_mul_right
 
+/-- Solution or proof there is no solution for `a * x + b * y = c`  -/
 def DiaphontineSolution.solve (a b c : ℤ) : DiaphontineSolution a b c := 
     if h : ↑(Int.gcd a b) ∣ c  
     then 
@@ -68,33 +80,3 @@ def DiaphontineSolution.solve (a b c : ℤ) : DiaphontineSolution a b c :=
         apply eqn_solvable_divides a b c
         use x, y
         assumption   
-
-theorem And.mp {q : Prop}(p : Prop) (h : p ∧ (p → q)) : q := by
-    simp_all only
-
-example : 1 = 1 := by
-    apply And.mp (2 = 2)
-    simp
-
-def Vector.dot (n : Nat) (a a' : Vector Int n) : Int :=  
-    match n, a, a' with 
-    | 0, _, _ => 0
-    | n+1, ⟨h :: t, pf⟩, ⟨h' :: t', pf'⟩  =>
-        have q : t.length = n := by 
-            simp [List.length] at *
-            assumption
-        have q' : t'.length = n := by 
-            simp [List.length] at *
-            assumption
-        h * h' + Vector.dot n ⟨t, q⟩ ⟨t', q'⟩ 
-
-#check List.elem
-
-#check List.mem_cons
-
-
-def List.gcd (l : List Int) : Int := 
-    match l with 
-    | [] => 0
-    | h :: t => Int.gcd h (List.gcd t)
-
