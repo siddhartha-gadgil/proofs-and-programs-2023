@@ -12,6 +12,7 @@ import PnP2023.Lec_02_03.InductiveTypes
 import PnP2023.Lec_02_15.PropsAsTypes
 import PnP2023.Lec_03_01.RandomIO
 import PnP2023.Lec_03_08.Diaphontine
+import PnP2023.Lec_03_10.FormalCalculus
 /-!
 # Proofs and Programs 2023
 
