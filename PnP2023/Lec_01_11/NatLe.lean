@@ -17,12 +17,12 @@ Analogous to this, (modulo renaming) the `≤` relation is defined in terms of t
 -/
 
 
-#check Nat.zero
-#check Nat.succ
+#check Nat.zero -- Nat.zero : ℕ
+#check Nat.succ -- Nat.succ : ℕ → ℕ
 
-#check Nat.le
-#check Nat.le_step
-#check Nat.le_refl
+#check Nat.le -- Nat.le : ℕ → ℕ → Prop
+#check Nat.le_step -- Nat.le_step : ∀ {n m : ℕ}, n ≤ m → n ≤ Nat.succ m
+#check Nat.le_refl -- Nat.le_refl : ∀ n : ℕ, n ≤ n
 
 /-!
 The first proof we see is of `3 ≤  3`. This is a direct application of `Nat.le_refl`. This is analogous to applying `Nat.le_refl` as a function to the argument `3`.
