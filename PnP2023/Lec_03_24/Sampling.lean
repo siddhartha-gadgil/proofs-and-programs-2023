@@ -100,5 +100,5 @@ def pickElemD [DecidableEq α](l: List α)(p: α → Bool)(default : α)(h₁ : 
 /-!
 ## Random Monad
 
-We used the 
+We used the IO Monad which has a lot of stuff besides randomness.
 -/
