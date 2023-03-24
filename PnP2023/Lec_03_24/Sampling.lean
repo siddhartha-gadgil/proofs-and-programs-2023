@@ -51,22 +51,51 @@ theorem remove_mem_length  {α :  Type u} [DecidableEq α]{a : α } {l : List α
 We pick an index of the list `l`, which is of type `Fin l.length`. Rather than proving that the random number generator has this property we pass `mod n`.
 -/
 
-/-- A random finite number -/
-def IO.randFin (n : ℕ)(h : n > 0) : IO <| Fin n   := do
-  let r ← IO.rand 0 n
+/-- A random number in `Fin n` -/
+def IO.randFin (n : ℕ)(h : 0 < n ) : IO <| Fin n   := do
+  let r ← IO.rand 0 (n - 1)
   pure ⟨r % n, Nat.mod_lt r h⟩
 
 #check List.mem_remove_iff -- ∀ {α : Type u_1} [inst : DecidableEq α] {a b : α} {as : List α}, b ∈ List.remove a as ↔ b ∈ as ∧ b ≠ a
 #check List.length_pos_of_mem -- ∀ {α : Type u_1} {a : α} {l : List α}, a ∈ l → 0 < List.length l
 #check List.get_mem -- ∀ {α : Type u_1} (l : List α) (n : ℕ) (h : n < List.length l), List.get l { val := n, isLt := h } ∈ l
 
-/-- A random element with a given property from a list, within `IO`  -/
-def pickElemIO [DecidableEq α](l: List α)(p: α → Bool)(h : ∃t : α, t ∈ l ∧ p t = true) : IO {t : α // t ∈ l ∧ p t = true} := sorry
 
-/-- A random element with a given property from a list. As IO may in principle give an error, we specify a default to fallback -/
-def pickElemD [DecidableEq α](l: List α)(p: α → Bool)
-  (default: {t : α // t ∈ l ∧ p t = true}) : 
-    {t : α // t ∈ l ∧ p t = true} := (pickElemIO l p ⟨default.val, default.prop⟩).run' () |>.getD default
+/-- A random element with a given property from a list, within `IO`  -/
+def pickElemIO [DecidableEq α](l: List α)(p: α → Bool)(h : ∃t : α, t ∈ l ∧ p t = true) : IO {t : α // t ∈ l ∧ p t = true} := do
+  have h' : 0 < l.length := by 
+    have ⟨t, h₀⟩ := h
+    apply List.length_pos_of_mem h₀.left
+  let index ← IO.randFin l.length h' 
+  let a := l.get index
+  if c:p a = true then
+    return ⟨a, by 
+      simp [c]
+      apply List.get_mem
+      ⟩
+  else
+    let l' := l.remove a
+    have h' : ∃t : α, t ∈ l' ∧ p t = true :=
+      by
+        have ⟨t, h₁, h₂⟩ := h
+        use t
+        simp [List.mem_remove_iff, h₁, h₂]
+        simp at c
+        intro contra
+        simp [contra, c] at h₂
+    have : l'.length < l.length := by
+      apply remove_mem_length
+      apply List.get_mem
+    let ⟨t, h₁, h₂⟩ ←  pickElemIO l' p h'
+    have m : t ∈ l := 
+      List.mem_of_mem_remove h₁
+    return ⟨t, m, h₂⟩
+termination_by _ _ _ l _ _ => l.length  
+    
+/-- A random element with a given property from a list. As IO may in principle give an error, we specify a default to fallback and the conditions that this is in the list and has the property `p` -/
+def pickElemD [DecidableEq α](l: List α)(p: α → Bool)(default : α)(h₁ : default ∈ l)(h₂ : p default = true)
+  : 
+    {t : α // t ∈ l ∧ p t = true} := (pickElemIO l p ⟨default, h₁, h₂⟩).run' () |>.getD ⟨default, h₁, h₂⟩
 
 /-!
 ## Random Monad
