@@ -9,6 +9,5 @@ theorem sum_formula (n: ℕ) : 2 * sumTo n = n * (n + 1):= by
   | zero => 
     simp [sumTo]
   | succ n ih => 
-    rw[sumTo]
-    simp [ih]
+    simp [sumTo, ih]
     linarith
