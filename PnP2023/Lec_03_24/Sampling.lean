@@ -100,5 +100,102 @@ def pickElemD [DecidableEq α](l: List α)(p: α → Bool)(default : α)(h₁ : 
 /-!
 ## Random Monad
 
-We used the IO Monad which has a lot of stuff besides randomness.
+We used the IO Monad which has a lot of stuff besides randomness. We will now demistify this by constructing a Monad for randomness only.
 -/
+#check StdGen
+#check mkStdGen -- mkStdGen (s : ℕ := 0) : StdGen
+#check randNat -- randNat.{u} {gen : Type u} [inst✝ : RandomGen gen] (g : gen) (lo hi : ℕ) : ℕ × gen
+
+def RandomM α := StdGen → α × StdGen    
+
+#check IO.rand -- IO.rand (lo hi : ℕ) : IO ℕ
+namespace RandomM
+
+def rand (lo hi : ℕ): RandomM ℕ :=
+  fun gen ↦ randNat gen lo hi
+
+def run (x : RandomM α) : 
+  StdGen →  α × StdGen := x
+
+def run' (x : RandomM α)(gen : StdGen := default) : α  :=
+  (x gen).1
+  
+#eval rand 0 10 |>.run' 
+
+instance : Monad RandomM where
+  pure := fun x ↦ fun gen ↦ (x, gen)
+  map := fun f x ↦ 
+    fun gen ↦ 
+      let (a , gen') := x gen
+      (f a, gen') 
+  bind := fun x b ↦
+    fun gen ↦
+      let (a , gen') := x gen
+      b a gen'
+
+def randBool : RandomM Bool := do
+  let n ← rand 0 1 
+  pure (n == 0)
+
+#eval randBool |>.run' (mkStdGen 84938743)
+
+def randList (lo hi n : ℕ) : 
+  RandomM <| List ℕ := do
+  match n with
+  | 0 => pure []
+  | k + 1 => do
+    let x ← rand lo hi
+    let xs ← randList lo hi k
+    pure <| x :: xs
+
+#eval randList 1 10 7 |>.run' (mkStdGen 84938743)
+
+def setSeed (n : ℕ) : RandomM Unit :=
+  fun _ ↦ ((), mkStdGen n)
+
+def withSeed (n: ℕ) (c : RandomM α) : 
+  RandomM α := do
+  setSeed n
+  c
+
+#eval (withSeed 376872 <| randList 1 10 12) |>.run'
+
+end RandomM
+
+def StateM' σ α := σ → α × σ
+
+instance : Monad <| StateM' σ where
+  pure := fun x ↦ fun gen ↦ (x, gen)
+  map := fun f x ↦ 
+    fun gen ↦ 
+      let (a , gen') := x gen
+      (f a, gen') 
+  bind := fun x b ↦
+    fun gen ↦
+      let (a , gen') := x gen
+      b a gen'
+namespace StateM'
+
+def run (x : StateM' σ α) : 
+  σ →  α × σ := x
+
+def run' [Inhabited σ](x : StateM' σ α)(s : σ := default) : α  :=
+  (x s).1
+
+def setState (s : σ) : StateM' σ Unit :=
+  fun _ ↦ ((), s)
+
+def getState : StateM' σ σ :=
+  fun s ↦ (s, s)
+
+def withState (s: σ) (c : StateM' σ α) : StateM' σ α := do
+  setState s
+  c
+
+end StateM'
+
+def RandomM' := StateM' StdGen
+
+namespace RandomM'
+
+end RandomM'
