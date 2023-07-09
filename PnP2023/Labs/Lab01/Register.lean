@@ -16,7 +16,7 @@ def details? : Option String := do
   let github ← github?
   let zulip ← zulip?
   let lab_repo ← lab_repo?
-  pure $ s!"Name: {name}; Gihub username:{github}; Zulip handle: {zulip}; Lab repo url: {lab_repo})"
+  pure $ s!"Name: {name}; Github username:{github}; Zulip handle: {zulip}; Lab repo url: {lab_repo})"
 
 #eval details?
 
