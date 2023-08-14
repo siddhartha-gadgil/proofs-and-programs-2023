@@ -292,7 +292,7 @@ Let $(X, \leq)$ be an ordered set giving a topological space with the order topo
 
 ## Quiz 18.1
 
-Consider the cover of $X = [0, 1]$ by sets of the form $X\cap (a, a + \frac{1}{3})$ for $a\in \mathbb{R}$. Then which of the following is __a__ Lesbegue number for this cover.
+Consider the cover of $X = [0, 1]$ by sets of the form $X\cap (a, a + \frac{1}{3})$ for $a\in \mathbb{R}$. Then which of the following is __a__ Lebesgue number for this cover.
 
 1. $1$
 2. $1/3$

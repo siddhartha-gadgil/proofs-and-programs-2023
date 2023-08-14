@@ -11,7 +11,7 @@
 
 Course grades will be based **entirely** on code in Lean and your knowledge of related concepts, which has three components:
 
-* __Lab assigments:__ 20%; these will be regularly assigned.
+* __Lab assignments:__ 20%; these will be regularly assigned.
 * __Midterm Project:__ 30%; this will be due at the start of the midterm week.
 * __Final Project:__ 50%; this will be due on the date of the final examination.
 
