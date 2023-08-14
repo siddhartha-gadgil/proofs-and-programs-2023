@@ -44,7 +44,7 @@ In addition to the names in the context, we can have some names that are only va
 
 ### Initial Context
 
-Even an empty Lean file does not have an empty context. Instead the context has [Foundational Types](http://math.iisc.ac.in/~gadgil/proofs-and-programs-2023/doc/foundational_types.html).
+Even an empty Lean file does not have an empty context. Instead the context has [Foundational Types](https://math.iisc.ac.in/~gadgil/proofs-and-programs-2023/doc/foundational_types.html).
 
 ### Axioms
 

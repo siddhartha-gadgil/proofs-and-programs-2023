@@ -16,7 +16,7 @@ The video is part of a [playlist](https://www.youtube.com/playlist?list=PL6-3eHs
 In case you do not have an appropriate laptop/desktop, you have a few options:
 
 * Use one of the cloud based services: Gitpod or Github Codespaces. The setup is explained in the [playlist](https://www.youtube.com/playlist?list=PL6-3eHsG5e4dRrUmRBr8vUSul6bmxiO0k), except you should start with (your copy of) the course repository.
-* Get an account on a machine in the mathematics department with vs-code server setup and connect from a browser. For this contact [Siddhartha Gadgil](http://math.iisc.ac.in/~gadgil).
+* Get an account on a machine in the mathematics department with vs-code server setup and connect from a browser. For this contact [Siddhartha Gadgil](https://math.iisc.ac.in/~gadgil).
 
 ##### Setting up a repository
 

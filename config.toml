@@ -1,4 +1,4 @@
-baseURL = "http://math.iisc.ac.in/~gadgil/proofs-and-programs-2023/"
+baseURL = "https://math.iisc.ac.in/~gadgil/proofs-and-programs-2023/"
 languageCode = "en-us"
 title = "MA 208: Proof and Programs"
 theme = "course"
