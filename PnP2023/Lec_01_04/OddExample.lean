@@ -1,5 +1,4 @@
 import Mathlib
-import LeanAide
 
 /-!
 ## A bit of AI

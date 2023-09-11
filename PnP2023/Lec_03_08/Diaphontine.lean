@@ -79,4 +79,4 @@ def DiaphontineSolution.solve (a b c : ℤ) : DiaphontineSolution a b c :=
         apply h
         apply eqn_solvable_divides a b c
         use x, y
-        assumption   
+         
