@@ -1,0 +1,11 @@
+{{ define "main"}}
+<h3>Lean theorem descriptions</h3>
+
+{{ .Content }}
+
+<ul>
+  {{  range where $.Site.RegularPages "Section" "descriptions" }}
+   <li> <h4><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h4> 
+  {{ end }}
+</ul>
+{{ end }}
