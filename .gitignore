@@ -7,3 +7,4 @@ videos/
 /static/doc
 .hugo_build.lock
 .cache/
+.lake/

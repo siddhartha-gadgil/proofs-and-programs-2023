@@ -31,6 +31,11 @@ An example using `minus` (using `decide` for the proof).
 
 #eval minus 5 3 (by decide) -- 2
 
+macro n:term "-₀" m:term : term => do
+  `(minus $n $m (by decide))
+
+#eval 5 - 3
+#eval 5 -₀ 3 -- 2
 
 /-- Subtraction (when valid) and addition are inverses
 -/
